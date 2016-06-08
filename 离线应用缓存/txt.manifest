@@ -1,0 +1,10 @@
+CACHE MANIFEST
+
+CACHE:
+offline.css?v=3.6
+
+NETWORK:
+*
+
+FALLBACK:
+online.css offline.css

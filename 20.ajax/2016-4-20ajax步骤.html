@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajax步骤</title>
+</head>
+<body>
+	<script>
+		//创建请求对象
+		if(window.XMLHttpRequest){
+			var ajax=new XMLHttpRequest();
+		}else{
+			var ajax=new ActiveXObject("Micrsoft.XMLHTTP")//只有IE6是这样
+		}
+		
+		//创建连接 参数一表示发送方式
+		//一种是GET GET 容量小 安全差
+		//一种是POST，POST 容量大 安全好
+		//参数二表示访问url，参数三表示是否发送异步请求
+		ajax.open("GET","js.js",true);
+		//发送请求
+		ajax.send();
+		//请求完成 接受服务器反馈
+		ajax.onreadystatechange=function(){
+			if(ajax.readyState==4){
+				// alert(1)
+				if(ajax.status==200){
+					// fn1()
+					// alert("成功")
+					var evaljs=ajax.responseText;
+					eval(evaljs);//将文件还原为js文件
+					console.log(ajax.responseText)
+				}else{
+					// fn2()
+					// alert("失败")
+				}
+
+			}
+			
+		}	
+	</script>
+</body>
+</html>

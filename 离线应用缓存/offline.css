@@ -1,0 +1,9 @@
+/*offline*/
+/*有网络时缓存进来,无网络时加载这个css*/
+.online{
+	display: none;
+}
+.offline{
+	font-size: 20px;
+	color: red;
+}

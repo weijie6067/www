@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>cookie登录</title>
+	<style type="text/css">
+	body{
+		background: #000;
+	}
+	.a{
+		height: 300px;
+		width: 500px;
+		margin: 200px auto;
+		border-radius: 10px;
+		background: white;
+		box-shadow: 0px 0px 5px 1px #eee;
+		overflow:hidden;
+	}
+	.c{
+		height: 150px;
+		width: 230px;
+		margin: 80px auto;
+		position: relative;
+	}
+	input{
+		margin-top: 10px;
+	}
+	.zhuce{
+		position: absolute;
+		right: 9px;
+	}
+	.denglu{
+		float: left;
+	}
+	.zhuce,.denglu{
+		margin-top: 10px;
+	}
+	</style>
+</head>
+<body>
+	<div class="a">
+		<div class="c">
+			账户：<input type="text" id="names">
+			<br>
+			密码：<input type="password" id="password">
+			<br>
+			<button class="denglu" id="denglu">登录</button>
+			<button class="zhuce">注册</button>
+		</div>
+		
+	</div>
+	<script type="text/javascript">
+
+	var names=document.getElementById("names");
+
+	var password=document.getElementById("password");
+	var denglu=document.getElementById("denglu");
+	denglu.onclick=function(){
+	
+		if(name.value!=""&&password.value!=""){
+			// var nameVal=names.value;
+			var nameVal=names.value;
+			var ts=new Date(2016,04,26,20,00,00);
+			document.cookie="names="+nameVal+";expires="+ts+"";
+			window.location="load.html";	
+		}else{
+			alert("请输入正确的用户名和密码")
+		}
+	}
+	var x=document.cookie
+	var y=x.replace("names=","")
+	names.value=y
+
+	
+	</script>
+
+</body>
+</html>

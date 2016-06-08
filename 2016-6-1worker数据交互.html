@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Worker数据交互</title>
+</head>
+<body>
+	<div id="res"></div>
+	<script type="text/javascript">
+	var webWoker=new Worker("jaohu.js");
+	webWoker.postMessage("hello")
+	webWoker.onmessage=function(e){
+		console.log(e)
+		res.innerHTML=e.data
+	}
+	
+	</script>
+</body>
+</html>

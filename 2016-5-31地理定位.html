@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>地理定位</title>
+	<style type="text/css">
+	
+	</style>
+</head>
+<body>
+	<script type="text/javascript">
+		var geo=navigator.geolocation;
+		geo.getCurrentPosition(function(data){
+//			console.log(data);
+			alert("维度"+data.coords.latitude);
+			alert("经度"+data.coords.longitude);
+			alert("海拔"+data.coords.altitude);
+			alert("方向"+data.coords.heading);
+			alert("速度"+data.coords.speed);
+		});
+	</script>
+		
+</body>
+</html>

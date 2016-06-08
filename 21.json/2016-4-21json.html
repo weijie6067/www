@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>json</title>
+	<script src="ajax.js"></script>
+</head>
+<body>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>	
+<script>
+	var li=document.getElementsByTagName('li');
+	var arr=[];
+	ajax("2016-4-21json.json",function(data){
+		var edata=JSON.parse(data) ;
+		arr.push(edata.age);
+		arr.push(edata.name);
+		arr.push(edata.password);
+		console.log(arr)
+		for (var i = 0; i < li.length; i++) {
+			li[i].innerHTML=arr[i]
+		};
+	},function(){
+		alert(a)
+	})
+</script>
+</body>
+</html>

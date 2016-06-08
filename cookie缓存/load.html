@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>load</title>
+</head>
+<body>
+	<!-- <button id="back">返回</button> -->
+	<script type="text/javascript">
+	// var back=document.getElementById("back")
+	var bd=document.getElementsByTagName("body")[0]
+	var nh1=document.createElement("p");
+	bd.appendChild(nh1);
+	var x=document.cookie
+	var y=x.replace("names=","")
+	nh1.innerHTML="用户名："+y;
+	
+	</script>
+</body>
+</html>	

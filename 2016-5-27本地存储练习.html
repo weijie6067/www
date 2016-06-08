@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>本地存储</title>
+	<style type="text/css">
+		p{
+			border: 1px solid #eee;
+		
+			width: 100px;
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<textarea id="msg" cols="50" rows="10"></textarea>
+	<br>
+	<button id="add">添加留言</button>
+	<button id="del">删除留言</button>
+	<script type="text/javascript">
+	var msg=document.getElementById("msg");
+	var add=document.getElementById("add");
+	var del=document.getElementById("del");
+	var bd=document.getElementsByTagName("body")[0];
+	var num=0;
+	var x=localStorage.getItem("num");
+
+	if(x){
+		for(var i=0;i<x;i++){
+			
+			var newP=document.createElement("p");
+			var aa=localStorage.getItem("txt"+num)
+			bd.appendChild(newP);
+			newP.innerHTML=localStorage.getItem('txt'+i);
+		}
+	}
+	
+	add.onclick=function(){
+		if(msg.value!=""){
+			var newP=document.createElement("p");
+			newP.innerHTML=msg.value;
+			bd.appendChild(newP);
+			localStorage.setItem("txt"+num,msg.value);
+			num++;
+			localStorage.setItem('num',num);
+//			msg.value="";
+			
+		}else{
+			alert("请输入内容")
+		}
+		
+		
+	}
+	del.onclick=function(){
+		var pDel=document.getElementsByTagName("p");
+		console.log(pDel.length)
+		for(var a=0;a<pDel.length;a++){
+			bd.removeChild(pDel[a]);
+		}	
+		localStorage.clear();
+	}
+	</script>
+</body>
+</html>

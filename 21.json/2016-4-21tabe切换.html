@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>json</title>
+	<script src="ajax.js"></script>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+		font-family: "微软雅黑";
+	}
+	ul{
+		list-style: none;
+		height: 32px;
+	}
+	li{
+		float: left;
+		width: 70px;
+		height: 30px;
+		font-size: 20px;
+		line-height: 30px;
+		text-align: center;
+		margin-left: 2px;
+		border-radius: 5px 5px 0px 0px;
+		background: red;
+		color: white
+
+	}
+	#pic{
+		height: 300px;
+		width: 300px;
+		border-radius: 0px 5px 5px 5px;
+		border: 1px solid #ccc;
+		/*margin-top: 100px;*/
+		margin-left: 2px;
+		margin-top: -2px;
+		
+	}
+	#outer{
+		margin-left: 100px;
+		margin-top: 100px;
+		overflow: hidden;
+
+	}
+	body{
+		background:#eee;
+	}
+	</style>
+</head>
+<body>
+<div id="outer">
+
+	<ul>
+		<li>春</li>
+		<li>夏</li>
+		<li>秋</li>
+		<li>东</li>
+	</ul>	
+	<div id="pic"></div>
+</div>	
+<script>
+	var pic=document.getElementById('pic');
+	var li=document.getElementsByTagName('li');
+	var arr=[];
+	ajax("http://180.76.185.227/lj/ljp.php",function(data){
+				var img=JSON.parse(data);
+				// console.log(img);
+				arr.push(img.msg.img1);
+				arr.push(img.msg.img2);
+				arr.push(img.msg.img3);
+				arr.push(img.msg.img4);
+				pic.style.background="url("+arr[0]+")";
+				pic.style.backgroundSize="100% 100%";
+
+				for (var i = 0; i < li.length; i++) {
+					li[i].index=i;
+					li[0].style.background="yellow";
+					li[0].style.color="red";
+
+					li[i].onclick=function(){
+						for (var i = 0; i < li.length; i++) {
+							li[i].style.background="red";
+							li[i].style.color="white";
+						};
+						this.style.background="yellow";
+						this.style.color="red";
+						var a=arr[this.index]
+						pic.style.background="url("+a+")"
+						pic.style.backgroundSize="100% 100%";
+						
+					}
+				};
+				
+	},function(){
+
+	})
+</script>
+</body>
+</html>

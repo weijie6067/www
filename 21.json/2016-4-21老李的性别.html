@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>json</title>
+	<script src="ajax.js"></script>
+	
+</head>
+<body>
+
+<script>
+	
+	var arr=[];
+	ajax("json2.json",function(data){
+		var a=JSON.parse(data);
+		console.log(a[2].number[0].sex)
+				
+	},function(){
+
+	})
+</script>
+</body>
+</html>

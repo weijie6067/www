@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>百度地图api</title>
+		<script src="http://api.map.baidu.com/api?v=1.4" type="text/javascript"></script>
+		<!--<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=zXpioEukGBxGttWlEkHdCeA8o892wwNP"></script>-->
+		<style type="text/css">
+			#map{
+				width:1000px;
+				height: 800px;
+				margin: auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="map"></div>
+		<script type="text/javascript">
+			var map=new BMap.Map("map");
+			var point=new BMap.Point(116.404, 39.915);
+			map.centerAndZoom(point,14);
+//			map.enableMousewheelControl();
+			map.enableScrollWheelZoom();
+			map.addControl(new BMap.NavigationControl());
+			map.addControl(new BMap.ScaleControl());    
+			map.addControl(new BMap.OverviewMapControl());    
+			map.addControl(new BMap.MapTypeControl());   
+//			var opts = {offset: new BMap.Size(150, 5)}    
+//			map.addControl(new BMap.ScaleControl(opts));
+//			var add = {anchor: (BMAP_ANCHOR_TOP_RIGHT)}    
+//			map.addControl(new BMap.ScaleControl(add));
+			var marker = new BMap.Marker(point);        // 创建标注    
+			map.addOverlay(marker);
+//			var m1=new BMap.Map.()
+			var icon=new BMap.Icon("1.jpg",new BMap.Size(200,200))
+			m1=setIcon(icon)
+			
+		</script>
+	</body>
+</html>

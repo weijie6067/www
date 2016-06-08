@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>地图练习</title>
+		<script src="http://api.map.baidu.com/api?v=1.4" type="text/javascript"></script>
+		<style>
+			#map{
+				width: 500px;
+				height: 500px;
+				margin: auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="map"></div>
+		<script type="text/javascript">
+			var map=new BMap.Map("map");
+			var point=new BMap.Point(116.404,39.915);
+			map.centerAndZoom(point,15);
+//			window.setTimeout(function(){
+//				map.panTo(new BMap.Point(116.509,39.918)) //1秒后自动跳转跳转
+//			},1000)
+//			map.addControl(new BMap.NavigationControl());
+
+			map.addControl(new BMap.CopyrightControl());
+			map.addControl(new BMap.MapTypeControl());
+//			map.addControl(new BMap.GeolocationControl());
+			map.setCurrentCity("北京");
+//			var position=new BMap.NavigationControl();
+//			position.setAnchor(BMAP_ANCHOR_TOP_RIGHT);
+//			map.addControl(position);
+//			var opts = {offset: new BMap.Size(150, 5)}    
+//			map.addControl(new BMap.NavigationControl(opts));
+			var marker=new BMap.Marker(point);
+			map.addOverlay((marker))
+			map.addControl(new BMap.NavigationControl({anchor: BMAP_ANCHOR_TOP_RIGHT, type: BMAP_NAVIGATION_CONTROL_SMALL}));
+		</script>
+	</body>
+</html>
